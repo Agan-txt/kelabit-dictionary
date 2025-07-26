@@ -4,6 +4,11 @@ from Search_code2 import load_dictionary_from_docx, normalize_word
 app = Flask(__name__)
 dictionary = None  # Lazy-load to prevent memory crash on Render free plan
 
+
+@app.route("/")
+def home():
+    return "<h2>Kelabit Dictionary API is running.</h2><p>Use /define?word=yourword</p>"
+
 @app.route("/define", methods=["GET"])
 def define():
     global dictionary
